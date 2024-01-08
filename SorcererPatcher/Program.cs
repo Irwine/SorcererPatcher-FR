@@ -253,8 +253,8 @@ public class Program
                 notes.BookText = notes.Name;
                 notes.Description = (name != null && name.Contains("of the")) switch
                 {
-                    true => $"Vous permet de fabriquer : Parchemin - {name}.",
-                    false => $"Vous permet de fabriquer : Parchemin - {name}."
+                    true => $"Vous permet de fabriquer : {name}.",
+                    false => $"Vous permet de fabriquer : {name}."
                 };
                 notes.Keywords = new ExtendedList<IFormLinkGetter<IKeywordGetter>>
                 {
@@ -648,12 +648,12 @@ public class Program
             }
 
         Console.WriteLine();
-        Console.WriteLine($"Patched {scrollCount} scrolls");
-        Console.WriteLine($"Patched {staffCount} staves and {staffEnchCount} enchantments");
-        Console.WriteLine($"Patched {staffRecipeCount} staff recipes");
+        Console.WriteLine($"{scrollCount} parchemins patchés");
+        Console.WriteLine($"{staffCount} bâtons et {staffEnchCount} enchantements patchés");
+        Console.WriteLine($"{staffRecipeCount} recettes de bâtons patchées");
 
         var recordCount = state.PatchMod.EnumerateMajorRecords().Count();
 
-        Console.WriteLine($"Patched {recordCount} records");
+        Console.WriteLine($"{recordCount} entrées patchés");
     }
 }
