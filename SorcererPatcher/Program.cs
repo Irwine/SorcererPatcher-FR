@@ -13,10 +13,10 @@ namespace SorcererPatcher;
 
 public class Settings
 {
-    [SettingName("Patch entire load order")]
+    [SettingName("Patcher l'ordre de chargement au complet")]
     public bool PatchFullLoadOrder = true;
 
-    [SettingName("Patch a single mod (e.g.: Sorcerer.esp)")]
+    [SettingName("Ne patcher qu'un seul mod (e.g.: Sorcerer.esp)")]
     public string PatchSingleMod = "";
 }
 
@@ -100,28 +100,28 @@ public class Program
 
         HashSet<string> uniqueStaves = new()
         {
-            "Dragon Priest Staff",
-            "Eye of Melka",
-            "Gadnor's Staff of Charming",
-            "Halldir's Staff",
-            "Hevnoraak's Staff",
-            "Sanguine Rose",
-            "Skull of Corruption",
-            "Spider Control Rod",
-            "Staff of Arcane Authority",
-            "Staff of Hag's Wrath",
-            "Staff of Jyrik Gauldurson",
-            "Staff of Magnus",
-            "Staff of Tandil",
+            "Bâton de prêtre-dragon",
+            "Oeil de Melka",
+            "Bâton d'ensorcellement de Gadnor",
+            "Bâton d'Halldir",
+            "Bâton d'Hevnoraak",
+            "Rose sanghine",
+            "Crâne de la Corruption",
+            "Baguette d'arachnologie",
+            "Bâton de prépotence",
+            "Bâton de la Mégère courroucée",
+            "Bâton de Jyrik Gauldurson",
+            "Bâton de Magnus",
+            "Bâton de Tandil",
             "Wabbajack",
-            "Aetherial Staff",
-            "Staff of Ruunvald",
-            "Miraak's Staff",
-            "Staff of Hasedoki",
-            "Arm of the Moon",
-            "Arm of the Sun",
-            "Staff of Sheogorath",
-            "Staff of Worms"
+            "Bâton en aethérium",
+            "Bâton de Ruunvald",
+            "Bâton de Miraak",
+            "Bâton d'Hasedoki",
+            "Arme de la Lune",
+            "Arme du Soleil",
+            "Bâton de Shéogorath",
+            "Bâton des vers"
         };
 
         HashSet<string> brumaUniqueStaves = new()
@@ -153,7 +153,7 @@ public class Program
 
                 if (sName != null && edid != null &&
                     (edid.Contains("MAG_") || sName.Contains("Shalidor") || sName.Contains("J'zargo") ||
-                     sName.Contains("Spider"))) continue;
+                     sName.Contains("Araignée"))) continue;
 
                 Console.WriteLine(
                     $"Processing scroll: {scroll.Name} (0x{scroll.FormKey.ID:X}: {scroll.FormKey.ModKey.FileName})");
@@ -239,7 +239,7 @@ public class Program
 
                 // Book logic
                 notes.EditorID = "MAG_ResearchNotes" + nameStripped;
-                notes.Name = "Research Notes: " + name;
+                notes.Name = "Notes de recherches - " + name;
                 notes.Weight = 0;
                 notes.Value = costliestEffectLevel switch
                 {
@@ -253,8 +253,8 @@ public class Program
                 notes.BookText = notes.Name;
                 notes.Description = (name != null && name.Contains("of the")) switch
                 {
-                    true => $"Allows you to craft Scrolls of the {name}.",
-                    false => $"Allows you to craft Scrolls of {name}."
+                    true => $"Vous permet de fabriquer : Parchemin - {name}.",
+                    false => $"Vous permet de fabriquer : Parchemin - {name}."
                 };
                 notes.Keywords = new ExtendedList<IFormLinkGetter<IKeywordGetter>>
                 {
