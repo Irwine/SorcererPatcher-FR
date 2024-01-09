@@ -234,12 +234,12 @@ public class Program
                 var recipe = state.PatchMod.ConstructibleObjects.AddNew();
                 var breakdownRecipe = state.PatchMod.ConstructibleObjects.AddNew();
 
-                var name = sName?.Replace("Scroll of the ", "").Replace("Scroll of ", "");
+                var name = sName?.Replace("Parchemin - ", "").Replace("Parchemin - Conjuration de ", "");
                 var nameStripped = name?.Replace(" ", "");
 
                 // Book logic
                 notes.EditorID = "MAG_ResearchNotes" + nameStripped;
-                notes.Name = "Notes de recherches - " + nameStripped;
+                notes.Name = "Notes de recherches - " + name;
                 notes.Weight = 0;
                 notes.Value = costliestEffectLevel switch
                 {
