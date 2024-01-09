@@ -251,11 +251,12 @@ public class Program
                 };
                 notes.PickUpSound = pickUpSound;
                 notes.BookText = notes.Name;
-                notes.Description = (name != null && name.Contains("of the")) switch
+                notes.Description = $"Vous permet de fabriquer : Parchemin - {name}.";
+                /*notes.Description = (name != null && name.Contains("of the")) switch
                 {
-                    true => $"Vous permet de fabriquer : {name}.",
-                    false => $"Vous permet de fabriquer : {name}."
-                };
+                    true => $"Vous permet de fabriquer : Parchemin - {name}.",
+                    false => $"Vous permet de fabriquer : Parchemin - {name}."
+                };*/
                 notes.Keywords = new ExtendedList<IFormLinkGetter<IKeywordGetter>>
                 {
                     scrollResearchKywd
