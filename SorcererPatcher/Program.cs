@@ -239,7 +239,7 @@ public class Program
 
                 // Book logic
                 notes.EditorID = "MAG_ResearchNotes" + nameStripped;
-                notes.Name = "Notes de recherches - " + name;
+                notes.Name = "Notes de recherches - " + nameStripped;
                 notes.Weight = 0;
                 notes.Value = costliestEffectLevel switch
                 {
